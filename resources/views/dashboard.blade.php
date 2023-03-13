@@ -14,8 +14,8 @@
         <div class='row'>
            <div class='col-md-4 offset-md-4' style='margin-top:20px ;'>
             <h2> dashboard </h2>
-            <hr>
-        
+            <hr/>
+            <h2>Welcome Liyakat Hossain</h2>
 
            </div>
         </div>
