@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" 
      crossorigin="anonymous">
-    <title>Login</title>
+    <title>Dashboard</title>
 </head>
 <boby>
     <div class='container'>
@@ -15,8 +15,22 @@
            <div class='col-md-4 offset-md-4' style='margin-top:20px ;'>
             <h2> dashboard </h2>
             <hr/>
-            <h2>Welcome Liyakat Hossain</h2>
+                <table class='tabel'>
+                    <thead>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}<td>
+                            <td><a href="logout">Logout</a></td>
+                        </tr>
+                    </tbody>
 
+                </table>
            </div>
         </div>
     </div>

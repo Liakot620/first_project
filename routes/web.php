@@ -15,8 +15,13 @@ use App\Http\Controllers\CustomAuthController;
 */
 
 Route::get('/',[CustomAuthController::class,'login']);
-Route::get('/login',[CustomAuthController::class,'login']);
-Route::get('/registration',[CustomAuthController::class,'registration']);
+
+Route::get('/login',[CustomAuthController::class,'login'])->middleware('AlreadyLoggedIn');
+
+
+
+Route::get('/registration',[CustomAuthController::class,'registration'])->middleware('AlreadyLoggedIn');
 Route::post('/register-user',[CustomAuthController::class,'registerUser']);
 Route::post('/login-user',[CustomAuthController::class,'loginUser']);
-Route::get('/dashboard',[CustomAuthController::class,'dashboard']);
+Route::get('/dashboard',[CustomAuthController::class,'dashboard'])->middleware('isLoggedIn');
+Route::get('/logout',[CustomAuthController::class,'logout']);

@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Hash;
-use Session;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class CustomAuthController extends Controller
 {
@@ -58,6 +58,22 @@ class CustomAuthController extends Controller
         }
     }
     public function dashboard(){
-        return view('dashboard');
+
+
+        if(Session::get('loginiID')){
+            $user_id = Session::get('loginiID');
+            
+            $data['user'] = User::find($user_id);
+           
+            return view('dashboard',$data);
+        }else{
+            return redirect('login');
+        }
+    }
+    public function logout(){
+        if(Session::has('loginiID')){
+            Session::pull('loginiID');
+            return redirect('login');
+        }
     }
 }
